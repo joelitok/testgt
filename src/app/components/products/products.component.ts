@@ -4,6 +4,7 @@ import { Product } from 'src/app/model/product.model';
 import { ProductsService } from 'src/app/services/products.service';
 import { AppDataState, DataStateEnum } from 'src/app/state/product.state';
 import { catchError, map, startWith } from 'rxjs/operators';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
@@ -21,7 +22,7 @@ readonly DataStateEnum=DataStateEnum;
   //products?:Product[];
 
 //products:Product[]|null=null
-  constructor(private productService:ProductsService) { }
+  constructor(private productService:ProductsService,public router:Router) { }
 
   ngOnInit(): void {
   }
@@ -49,6 +50,7 @@ readonly DataStateEnum=DataStateEnum;
         catchError(err=>of({dataState:DataStateEnum.ERROR,errorMessage:err.message}))
     )  
   }
+  
   getSelectedProducts(){
     this.products$=this.productService.getSelectedProducts().pipe(
       map(data=>({dataState:DataStateEnum.LOADED, data:data})),
@@ -95,6 +97,14 @@ readonly DataStateEnum=DataStateEnum;
       }
     )
 
+  }
+
+  getNewProduct(){
+this.router.navigateByUrl("/product-add");
+  }
+
+  onEdit(p:Product){
+this.router.navigateByUrl('/editProduct/'+p.id);
   }
 
 

@@ -5,7 +5,7 @@
       "name": "Computer",
       "price": 5000,
       "quantity": 100,
-      "selected": true,
+      "selected": false,
       "available": true
     },
     {
@@ -20,9 +20,25 @@
       "name": "laravel",
       "price": 4000,
       "quantity": 450,
-      "selected": true,
+      "selected": false,
       "available": true,
       "id": 4
+    },
+    {
+      "id": 5,
+      "name": "joel",
+      "price": "4011",
+      "quantity": "111111",
+      "selected": true,
+      "available": true
+    },
+    {
+      "name": "joel tchoufa",
+      "price": 0,
+      "quantity": 0,
+      "selected": false,
+      "available": true,
+      "id": 6
     }
   ]
 }
